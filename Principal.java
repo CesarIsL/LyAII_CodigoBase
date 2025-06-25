@@ -6,6 +6,7 @@ import java.io.IOException;
 import javax.swing.JFileChooser;
 
 public class Principal {
+    
     public static void main(String[] args) {
         JFileChooser fileChooser = new JFileChooser();
         int result = fileChooser.showOpenDialog(null);
@@ -20,7 +21,7 @@ public class Principal {
                     codigo.append(linea).append(" ");
                 }
             } catch (IOException e) {
-                System.out.println("Error al leer el archivo:");
+                System.err.println("Error al leer el archivo:");
                 e.printStackTrace();
                 return;
             }
@@ -31,12 +32,22 @@ public class Principal {
                 return;
             }
 
+            // Confirmación de lectura
+            System.out.println("Archivo cargado: " + file.getName());
+            System.out.println("Contenido del archivo:\n------------------------");
+            System.out.println(contenido);
+            System.out.println("------------------------\n");
+
             try {
-                new Parser(contenido);
+                 new Parser(contenido);
+
+                System.out.println("-------------------------------\n");
+
             } catch (Exception e) {
-                System.out.println("Error al ejecutar el parser:");
+                System.err.println("Error al ejecutar el parser:");
                 e.printStackTrace();
             }
+
         } else {
             System.out.println("No se seleccionó ningún archivo.");
         }
