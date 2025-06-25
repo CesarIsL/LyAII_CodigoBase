@@ -9,8 +9,10 @@ public class Principal {
     
     public static void main(String[] args) {
         JFileChooser fileChooser = new JFileChooser();
+        fileChooser.setAcceptAllFileFilterUsed(false); // Quitar la opción "todos los archivos"
+        fileChooser.setFileFilter(new javax.swing.filechooser.FileNameExtensionFilter("Archivos de texto", "txt"));
         int result = fileChooser.showOpenDialog(null);
-
+        
         if (result == JFileChooser.APPROVE_OPTION) {
             File file = fileChooser.getSelectedFile();
             StringBuilder codigo = new StringBuilder();
