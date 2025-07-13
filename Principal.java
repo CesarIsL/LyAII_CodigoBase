@@ -20,7 +20,7 @@ public class Principal {
             try (BufferedReader lector = new BufferedReader(new FileReader(file))) {
                 String linea;
                 while ((linea = lector.readLine()) != null) {
-                    codigo.append(linea).append(" ");
+                    codigo.append(linea).append("\n");
                 }
             } catch (IOException e) {
                 System.err.println("Error al leer el archivo:");
